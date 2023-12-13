@@ -5,7 +5,7 @@ import static TeamData.InQueRole.NODATA;
 
 public class Member {
     private String battleTag = "NODATA";
-    private int[] desiredRoleOrder = {-1,-1,-1};//タンク、ダメージ、サポートの順
+    private int[] desiredRoleOrder = {-1,-1,-1};//TANK、DAMAGE、サポートの順
     private int[] rate = {-1,-1,-1};
     protected String duoBattleTag = "NODATA";
     protected String ngBattleTag = "NODATA";
@@ -21,7 +21,7 @@ public class Member {
         this(battleTag,desiredRoleOrder,rate);
         this.duoBattleTag = duoBattleTag;
     }
-    public Member(String battleTag, int[] desiredRoleOrder, int[] rate, String ngBattleTag, boolean a) {
+    public Member(String battleTag,String ngBattleTag, int[] desiredRoleOrder, int[] rate) {
         this(battleTag,desiredRoleOrder,rate);
         this.ngBattleTag = ngBattleTag;
     }
@@ -38,6 +38,9 @@ public class Member {
     }
     public int[] getRate(){
         return this.rate.clone();
+    }
+    public String getBattleTag(){
+        return this.battleTag;
     }
 
 }

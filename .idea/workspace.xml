@@ -5,22 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfd3ce0b-0ee5-4880-b5ac-e6ca9db44b33" name="変更" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OwTeamAssignment.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LoadDatasheet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamData/Block.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamData/InQueRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamData/LeftTeam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamData/LightTeam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamData/Matching.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamData/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamData/Team.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TeamData/RightTeam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OwTeamAssignment.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OwTeamAssignment.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoadDatasheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadDatasheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeamData/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamData/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeamData/InQueRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamData/InQueRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeamData/LeftTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamData/LeftTeam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeamData/LightTeam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeamData/Matching.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeamData/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamData/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeamData/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamData/Team.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -42,6 +40,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2YAUPPrdjwQL0NGYTNPbshVBid4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -50,17 +55,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "モジュール",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.3928243",
-    "settings.editor.selected.configurable": "configurable.group.appearance"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;モジュール&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.3928243&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="OwTeamAssignment" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="アプリケーション.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="アプリケーションレベル" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="デフォルトタスク">
@@ -71,5 +90,26 @@
       <updated>1699967854354</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((Block)this).teamList" custom="TeamData.Block" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

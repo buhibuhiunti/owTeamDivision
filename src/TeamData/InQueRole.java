@@ -1,5 +1,5 @@
 package TeamData;
 
 public enum InQueRole {
-    タンク,ダメージ,サポート,NODATA;
+    TANK, DAMAGE, SUPPORT,NODATA;
 }
