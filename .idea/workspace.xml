@@ -5,20 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfd3ce0b-0ee5-4880-b5ac-e6ca9db44b33" name="変更" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeamData/RightTeam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OwTeamAssignment.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OwTeamAssignment.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memberList.csv" beforeDir="false" afterPath="$PROJECT_DIR$/memberList.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LoadDatasheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadDatasheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TeamData/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamData/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TeamData/InQueRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamData/InQueRole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TeamData/LeftTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamData/LeftTeam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TeamData/LightTeam.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TeamData/Matching.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TeamData/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamData/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeamData/RightTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamData/RightTeam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TeamData/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeamData/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LoadDatasheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LoadDatasheet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TeamData/Block$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TeamData/Block$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TeamData/Block.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TeamData/Block.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TeamData/LeftTeam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TeamData/LeftTeam.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TeamData/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TeamData/Member.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TeamData/RightTeam.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TeamData/RightTeam.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TeamData/Team$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TeamData/Team$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TeamData/Team.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TeamData/Team.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +64,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;モジュール&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;プロジェクト&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.3928243&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
@@ -96,19 +100,29 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="35" />
+          <line>88</line>
+          <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="36" />
+          <url>file://$PROJECT_DIR$/src/TeamData/LeftTeam.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/TeamData/Block.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="79" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="((Block)this).teamList" custom="TeamData.Block" />
+        <watch expression="((java.util.ArrayList)((Block)this).teamList).get(41)" custom="TeamData.Block,java.util.ArrayList" />
+        <watch expression="((java.util.ArrayList)((Block)this).teamList).get(1)" custom="TeamData.Block,java.util.ArrayList" />
+        <watch expression="member" />
+        <watch expression="leaderList.get(17)" />
+        <watch expression="this" language="JAVA" />
+        <watch expression="this" />
       </configuration>
     </watches-manager>
   </component>

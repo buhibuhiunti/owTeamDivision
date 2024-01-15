@@ -11,4 +11,14 @@ public class LeftTeam extends Team{
         super(maxPeople,tankMaxPeople,damageMaxPeople,supportMaxPeople);
         newEntry(member,inQueRole);
     }
+    private LeftTeam(List<Member> teamMember,Team team) {
+        super(teamMember,team);
+    }
+    LeftTeam deepCopy(Team team) {
+        List<Member> cloneTeamMember = new ArrayList<>();
+        for(Member member : this.teamMember) {
+            cloneTeamMember.add(member.deepCopy(member));
+        }
+        return new LeftTeam(cloneTeamMember,team);
+    }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.tuple.Pair;
 
-public class Block {
+public class Block implements Cloneable{
     LeftTeam leftTeam;
     RightTeam rightTeam;
     List<Pair<LeftTeam, RightTeam>> teamList = new ArrayList<Pair<LeftTeam, RightTeam>>();
@@ -25,6 +25,42 @@ public class Block {
         this.teamList.add(teamPair);
         this.UPPER_LIMIT_RATE_DIFFERENCE = upperLimitRateDifference;
         this.MATCHING_ADJUSTMENT_RANGE = matchingAdjustmentRange;
+    }
+    public Block(int maxPeople, int tankMaxPeople, int damageMaxPeople, int supportMaxPeople, int upperLimitRateDifference, int matchingAdjustmentRange,
+                 List<Pair<LeftTeam,RightTeam>> teamList) {
+        this.MAX_PEOPLE = maxPeople;
+        this.TANK_MAX_PEOPLE = tankMaxPeople;
+        this.DAMAGE_MAX_PEOPLE = damageMaxPeople;
+        this.SUPPORT_MAX_PEOPLE = supportMaxPeople;
+        this.teamList = new ArrayList<>(teamList);
+        this.UPPER_LIMIT_RATE_DIFFERENCE = upperLimitRateDifference;
+        this.MATCHING_ADJUSTMENT_RANGE = matchingAdjustmentRange;
+    }
+    public void leaderInQue(Member member) {
+        InQueRole inQueRole = InQueRole.NODATA;
+        if(member.getDesiredRoleOrder()[0] == 1) {
+            inQueRole = InQueRole.TANK;
+        }
+        if(member.getDesiredRoleOrder()[1] == 1) {
+            inQueRole = InQueRole.DAMAGE;
+        }
+        if(member.getDesiredRoleOrder()[2] == 1) {
+            inQueRole = InQueRole.SUPPORT;
+        }
+        newMatch(member,inQueRole);
+    }
+    public List<Pair<LeftTeam,RightTeam>> cloneList() {
+        List<Pair<LeftTeam,RightTeam>> cloneTeamList = new ArrayList<Pair<LeftTeam,RightTeam>>();
+        LeftTeam cloneLeftTeam;
+        RightTeam cloneRightTeam;
+        Pair<LeftTeam,RightTeam> cloneTeamPair;
+        for(Pair<LeftTeam,RightTeam> Pair : this.teamList) {
+            cloneLeftTeam = Pair.getLeft().deepCopy(Pair.getLeft());
+            cloneRightTeam = Pair.getRight().deepCopy(Pair.getRight());
+            cloneTeamPair = Pair.of(cloneLeftTeam,cloneRightTeam);
+            cloneTeamList.add(cloneTeamPair);
+        }
+        return cloneTeamList;
     }
     void newMatch(Member member,InQueRole inQueRole){
         this.leftTeam = new LeftTeam(this.MAX_PEOPLE,this.TANK_MAX_PEOPLE,this.DAMAGE_MAX_PEOPLE,this.SUPPORT_MAX_PEOPLE);
@@ -183,22 +219,22 @@ public class Block {
             matchingScore = searchAcceptableTeams(member,inQueRole,TeamPair.getLeft(),TeamPair.getRight());
             if(matchingScore != -1 && matchingScore % 10000 < rateDifference) {
                 rateDifference = matchingScore % 10000;
-                if(matchingScore > 20000) {
+                if(matchingScore >= 20000) {
                     acceptableTeam = TeamPair.getRight();
-                } else if(matchingScore > 10000) {
+                } else if(matchingScore >= 10000) {
                     acceptableTeam = TeamPair.getLeft();
                 }
             }
         }
-        if(matchingScore != -1) {
-            if(acceptableTeam == null) {
+        if(acceptableTeam == null) {
+            if(matchingScore != -1) {
                 throw new NullPointerException("エラーコード：001\nシステム管理者に連絡してください\n" + member.getBattleTag());
             }
+        } else if (rateDifference != 10000) {
             acceptableTeam.newEntry(member,inQueRole);
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
     private int searchAcceptableTeams(Member member,InQueRole inQueRole,LeftTeam leftTeam, RightTeam rightTeam) {
         int rate = 0;
@@ -234,8 +270,8 @@ public class Block {
             }
             if(rightTeam.getMaxRate() + UPPER_LIMIT_RATE_DIFFERENCE >= rate &&
                     rightTeam.getMaxRate() - UPPER_LIMIT_RATE_DIFFERENCE <= rate &&
-                    rightTeam.getMinRate() + UPPER_LIMIT_RATE_DIFFERENCE <= rate &&
-                    rightTeam.getMinRate() - UPPER_LIMIT_RATE_DIFFERENCE >= rate) {
+                    rightTeam.getMinRate() + UPPER_LIMIT_RATE_DIFFERENCE >= rate &&
+                    rightTeam.getMinRate() - UPPER_LIMIT_RATE_DIFFERENCE <= rate) {
                 return Math.abs(leftTeam.getAverageRate() - rate) + 20000;
             }
         }
@@ -243,12 +279,39 @@ public class Block {
     }
     public void printTeamList() {
         int i = 1;
+        int count = 0;
+        this.teamList.remove(0);
         for(Pair<LeftTeam,RightTeam> Pair : this.teamList) {
-            System.out.println("チーム" + i);
+            System.out.print("チーム" + i + "平均レート" + Pair.getLeft().getAverageRate());
+            if(Pair.getLeft().isFull()) {
+                System.out.println("◯");
+                count++;
+            } else {
+                System.out.println("×");
+            }
             Pair.getLeft().outputMemberList();
-            System.out.println("チーム" + i++);
+            System.out.print("チーム" + ++i + "平均レート" + Pair.getRight().getAverageRate());
+            if(Pair.getRight().isFull()) {
+                System.out.println("◯");
+                count++;
+            } else {
+                System.out.println("×");
+            }
             Pair.getRight().outputMemberList();
-            i = i++;
+            i = ++i;
         }
+        System.out.println("メンバーが埋まったチームの数：" + count + "\nそのメンバーの数：" + count * 5);
+    }
+    public int numFullTeams() {
+        int num = 0;
+        for(Pair<LeftTeam,RightTeam> Pair : this.teamList) {
+            if(Pair.getLeft().isFull()) {
+                num++;
+            }
+            if(Pair.getRight().isFull()) {
+                num++;
+            }
+        }
+        return num*this.MAX_PEOPLE;
     }
 }

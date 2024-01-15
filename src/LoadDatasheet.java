@@ -2,19 +2,20 @@ import TeamData.Member;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 public class LoadDatasheet {
 
-    static List<TeamData.Member> loadDatasheet() {
+    static List<TeamData.Member> loadDatasheet(String filePath) {
         String tableContents;
         List<TeamData.Member> MemberList = new ArrayList<TeamData.Member>();
         File f;
         BufferedReader br = new BufferedReader(new StringReader(""));
         while(true) {
             try {
-                f = new File("memberList.csv");
+                f = new File(filePath);
                 br = new BufferedReader((new FileReader(f)));
             }
             catch (IOException e){
@@ -38,6 +39,8 @@ public class LoadDatasheet {
             int tankRateLocation = 0;
             int damageRateLocation = 0;
             int supportRateLocation = 0;
+            int leaderFlagRateLocation = 0;
+            boolean leaderFlag = false;
             try {
                 tableContents = br.readLine();
             } catch (IOException e) {
@@ -56,6 +59,8 @@ public class LoadDatasheet {
             tankRateLocation = countCommasBeforeTarget(tableContents,"タンクのレート");
             damageRateLocation = countCommasBeforeTarget(tableContents,"ダメージのレート");
             supportRateLocation = countCommasBeforeTarget(tableContents,"サポートのレート");
+            leaderFlagRateLocation = countCommasBeforeTarget(tableContents,"カスタムリーダー");
+
             while(true) {
                 int[] rate = {-1,-1,-1};
                 try {
@@ -144,12 +149,24 @@ public class LoadDatasheet {
                             break;
                     }
                 }
+                num = findIndexOfNthComma(tableContents,leaderFlagRateLocation);
+                s = getStringBetweenCommas(tableContents,leaderFlagRateLocation);
+                if(num != -1 && !s.equals("")) {
+                    if(s.equals("TRUE")) {
+                        leaderFlag = true;
+                    }
+                }
                 num = findIndexOfNthComma(tableContents,battleTagLocation);
                 String battleTag = getStringBetweenCommas(tableContents,battleTagLocation);
                 if(num == -1 || battleTag.equals("")) {
                     throw new IllegalArgumentException("errorCode007");
                 }
-                MemberList.add(new Member(battleTag,desiredRoleOrder,rate));
+                if(leaderFlag) {
+                    MemberList.add(new Member(leaderFlag,battleTag,desiredRoleOrder,rate));
+                } else {
+                    MemberList.add(new Member(battleTag,desiredRoleOrder,rate));
+                }
+                leaderFlag = false;
             }
                 return new ArrayList<TeamData.Member>(MemberList);
         }
